@@ -16,9 +16,8 @@ public class CollectionTestSuite {
 
     @Test
     public void testOddNumbersExterminatorEmptyList(){
-        ArrayList emptyList = new ArrayList();
+        ArrayList<Integer> emptyList = new ArrayList<Integer>();
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-            oddNumbersExterminator.exterminate(emptyList);
         ArrayList result = oddNumbersExterminator.exterminate(emptyList);
         System.out.println("Testing while list is empty");
         Assert.assertEquals(0, result.size());
@@ -26,7 +25,7 @@ public class CollectionTestSuite {
 
     @Test
     public void testOddNumbersExterminatorNormalList(){
-        ArrayList normalList = new ArrayList();
+        ArrayList<Integer> normalList = new ArrayList<Integer>();
 
         normalList.add(2);
         normalList.add(3);
@@ -36,7 +35,6 @@ public class CollectionTestSuite {
         normalList.add(9);
 
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-            oddNumbersExterminator.exterminate(normalList);
         ArrayList result = oddNumbersExterminator.exterminate(normalList);
         System.out.println("Testing normal list");
         Assert.assertEquals(3, result.size());
