@@ -60,7 +60,7 @@ public class ShapeCollectorTestSuite {
         Triangle theTriangle = new Triangle();
         shapeCollector.addFigure(theTriangle);
         shapeCollector.getFigure(0);
-        Assert.assertEquals(theTriangle, 0);
+        Assert.assertEquals(theTriangle, );
 
 
     }
@@ -71,7 +71,6 @@ public class ShapeCollectorTestSuite {
         Triangle theTriangle = new Triangle();
         shapeCollector.addFigure(theTriangle);
         shapeCollector.showFigures();
-        Assert.assertEquals(theTriangle, );
 
     }
 }
