@@ -59,8 +59,8 @@ public class ShapeCollectorTestSuite {
         ShapeCollector shapeCollector = new ShapeCollector();
         Triangle theTriangle = new Triangle();
         shapeCollector.addFigure(theTriangle);
-        shapeCollector.getFigure(0);
-        Assert.assertEquals(theTriangle, );
+        Shape figure = shapeCollector.getFigure(0);
+        Assert.assertEquals(theTriangle, figure);
 
 
     }
@@ -70,7 +70,8 @@ public class ShapeCollectorTestSuite {
         ShapeCollector shapeCollector = new ShapeCollector();
         Triangle theTriangle = new Triangle();
         shapeCollector.addFigure(theTriangle);
-        shapeCollector.showFigures();
+        ArrayList<Shape> shapes = shapeCollector.showFigures();
+        Assert.assertEquals(theTriangle, shapes.get(0));;
 
     }
 }
