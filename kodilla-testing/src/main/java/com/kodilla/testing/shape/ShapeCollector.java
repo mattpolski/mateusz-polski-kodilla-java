@@ -1,12 +1,6 @@
 package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
-import java.util.Objects;
-
-import com.kodilla.testing.shape.Shape;
-import com.kodilla.testing.shape.Triangle;
-import com.kodilla.testing.shape.Circle;
-import com.kodilla.testing.shape.Square;
 
 public class ShapeCollector {
 
@@ -17,18 +11,24 @@ public class ShapeCollector {
         shapes.add(shape);
     }
 
-    public void removeFigure(Shape shape) {
-        shapes.remove(shape);
-    }
-
-    public int getFigure(int n) {
-        shapes.get(n);
-        return n;
-    }
-
-    public void showFigures() {
-        for (int n = 0; n < shapes.size(); n++) {
-            System.out.println("List contains: " + shapes.get(n));
+    public boolean removeFigure(Shape shape) {
+        boolean result = false;
+        if (shapes.contains(shape)){
+            shapes.remove(shape);
+            result = true;
         }
+        return result;
+    }
+
+    public Shape getFigure(int n) {
+        return shapes.get(n);
+    }
+
+    public ArrayList<Shape> showFigures() {
+        return shapes;
+        }
+
+    public int getShapesQuantity() {
+        return shapes.size();
     }
 }

@@ -4,6 +4,7 @@ import com.kodilla.testing.shape.Circle;
 import com.kodilla.testing.shape.Shape;
 import com.kodilla.testing.shape.ShapeCollector;
 import com.kodilla.testing.shape.Triangle;
+import com.kodilla.testing.shape.Square;
 import org.junit.*;
 
 import java.util.ArrayList;
@@ -35,27 +36,42 @@ public class ShapeCollectorTestSuite {
         ShapeCollector shapeCollector = new ShapeCollector();
 
         //When
-        ArrayList result = shapeCollector.addFigure();
+        Circle theCircle = new Circle();
+        shapeCollector.addFigure(theCircle);
 
         //Then
-        Assert.assertEquals(1, result.size());
+        Assert.assertEquals(1, shapeCollector.getShapesQuantity());
 
     }
 
     @Test
     public void testRemoveFigure() {
         ShapeCollector shapeCollector = new ShapeCollector();
-        ArrayList result = shapeCollector.removeFigure(Triangle());
-        Assert.assertEquals(0, result.size());
+        Circle theCircle = new Circle();
+        shapeCollector.addFigure(theCircle);
+        boolean result = shapeCollector.removeFigure(theCircle);
+        Assert.assertTrue(result);
+        Assert.assertEquals(0, shapeCollector.getShapesQuantity());
     }
 
     @Test
     public void testGetFigure() {
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Triangle theTriangle = new Triangle();
+        shapeCollector.addFigure(theTriangle);
+        shapeCollector.getFigure(0);
+        Assert.assertEquals(theTriangle, 0);
+
 
     }
 
     @Test
     public void testShowFigures() {
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Triangle theTriangle = new Triangle();
+        shapeCollector.addFigure(theTriangle);
+        shapeCollector.showFigures();
+        Assert.assertEquals(theTriangle, );
 
     }
 }
