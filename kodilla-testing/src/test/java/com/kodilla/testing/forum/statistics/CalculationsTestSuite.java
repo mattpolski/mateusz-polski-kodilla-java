@@ -13,6 +13,7 @@ public class CalculationsTestSuite {
 
     @Test
     public void testCalculateAdvStatisticsWithMock() {
+        //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> users = new ArrayList<String>();
         int quantity = 100;
@@ -22,18 +23,16 @@ public class CalculationsTestSuite {
         when(statisticsMock.usersNames()).thenReturn(users);
         Calculations calculations = new Calculations();
 
-        List<String> listOfUsers = statisticsMock.usersNames();
 
-        Assert.assertEquals(100, listOfUsers.size());
+        calculations.calculateAdvStatistics(statisticsMock);
+        int usersCount = calculations.getUsersQuantity();
+        //Then
+        Assert.assertEquals(100, usersCount);
     }
 
     @Test
     public void testCalculateAdvStatisticsWithMock2() {
-        Statistics statisticsMock = mock(Statistics.class);
-        int posts = 100;
-        when(statisticsMock.postsCount()).thenReturn(posts);
-        Calculations calculations = new Calculations();
-        Assert.assertEquals(100, statisticsMock.postsCount());
+
     }
 
 
