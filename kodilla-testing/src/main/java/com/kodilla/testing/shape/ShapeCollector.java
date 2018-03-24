@@ -8,6 +8,7 @@ public class ShapeCollector {
 
 
     public void addFigure(Shape shape) {
+
         shapes.add(shape);
     }
 
