@@ -17,15 +17,23 @@ public class CalculationsTestSuite {
         List<String> users = new ArrayList<String>();
         int quantity = 100;
         for(int i=0; i<quantity; i++) {
-        String names = new String();
-            users.add(names);
+            users.add("User" + i);
         }
         when(statisticsMock.usersNames()).thenReturn(users);
         Calculations calculations = new Calculations();
 
-        int quantityOfUsers = calculations.getUsersQuantity();
+        List<String> listOfUsers = statisticsMock.usersNames();
 
-        Assert.assertEquals(100, quantityOfUsers);
+        Assert.assertEquals(100, listOfUsers.size());
+    }
+
+    @Test
+    public void testCalculateAdvStatisticsWithMock2() {
+        Statistics statisticsMock = mock(Statistics.class);
+        int posts = 100;
+        when(statisticsMock.postsCount()).thenReturn(posts);
+        Calculations calculations = new Calculations();
+        Assert.assertEquals(100, statisticsMock.postsCount());
     }
 
 

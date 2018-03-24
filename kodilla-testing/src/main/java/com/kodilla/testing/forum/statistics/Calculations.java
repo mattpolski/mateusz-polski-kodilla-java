@@ -1,6 +1,7 @@
 package com.kodilla.testing.forum.statistics;
 
 public class Calculations {
+    Statistics statistics;
 
     int usersQuantity;
     int postsQuantity;
