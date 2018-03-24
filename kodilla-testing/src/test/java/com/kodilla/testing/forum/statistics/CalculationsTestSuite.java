@@ -25,7 +25,7 @@ public class CalculationsTestSuite {
 
         int quantityOfUsers = calculations.getUsersQuantity();
 
-        Assert.assertEquals(100, users.size());
+        Assert.assertEquals(100, quantityOfUsers);
     }
 
 
