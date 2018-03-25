@@ -59,7 +59,8 @@ public class CalculationsTestSuite {
         Calculations calculations = new Calculations();
         calculations.calculateAdvStatistics(statisticsMock);
         double averageCommentsForPost = calculations.getAverageCommentsForPost();
-        Assert.assertEquals(0.35 , averageCommentsForPost, 0.35);
+        Assert.assertEquals(0.35 , averageCommentsForPost, 0);
 
     }
+
 }

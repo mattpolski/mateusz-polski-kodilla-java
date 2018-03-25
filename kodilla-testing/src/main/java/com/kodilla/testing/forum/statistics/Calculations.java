@@ -14,9 +14,9 @@ public class Calculations {
         this.usersQuantity = statistics.usersNames().size();
         this.postsQuantity = statistics.postsCount();
         this.commentsQuantity = statistics.commentsCount();
-        this.averagePostsForUser = postsQuantity / usersQuantity;
-        this.averageCommentsForUser = commentsQuantity / usersQuantity;
-        this.averageCommentsForPost = commentsQuantity / postsQuantity;
+        this.averagePostsForUser = (double) postsQuantity / usersQuantity;
+        this.averageCommentsForUser = (double) commentsQuantity / usersQuantity;
+        this.averageCommentsForPost = (double) commentsQuantity / postsQuantity;
         }
 
     public int getUsersQuantity() {
