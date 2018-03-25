@@ -17,7 +17,7 @@ public class Calculations {
         this.averagePostsForUser = postsQuantity / usersQuantity;
         this.averageCommentsForUser = commentsQuantity / usersQuantity;
         this.averageCommentsForPost = commentsQuantity / postsQuantity;
-    }
+        }
 
     public int getUsersQuantity() {
         return usersQuantity;
