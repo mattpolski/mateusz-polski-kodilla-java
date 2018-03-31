@@ -13,9 +13,9 @@ public class World {
 
     public BigDecimal getPeopleQuantity() {
         BigDecimal population = continents.stream()
-                .flatMap(continents -> continents.getListOfCountries().stream()
-                        .flatMap(country -> country.getPeopleQuantity())
-                        .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current)));
+                .flatMap(continents -> continents.getListOfCountries().stream())
+                        .map(country -> country.getPeopleQuantity())
+                                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
         return population;
     }
 

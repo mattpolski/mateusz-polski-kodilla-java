@@ -19,15 +19,24 @@ public class WorldTestSuite {
         countriesOfEurope.add(germany);
         countriesOfEurope.add(france);
 
+        List<Country> countriesOfSouthAmerica = new ArrayList<>();
+        Country brazil = new Country("Brazil", new BigDecimal("207353391"));
+        Country argentina = new Country("Argentina", new BigDecimal("44293293"));
+        Country colombia = new Country("Colombia", new BigDecimal("47698524"));
+        countriesOfSouthAmerica.add(brazil);
+        countriesOfSouthAmerica.add(argentina);
+        countriesOfSouthAmerica.add(colombia);
+
         List<Continent> continents = new ArrayList<>();
         Continent europe = new Continent("Europe", countriesOfEurope);
+        Continent southAmerica = new Continent("South America", countriesOfSouthAmerica);
+        continents.add(europe);
+        continents.add(southAmerica);
 
         World world = new World(continents);
-        BigDecimal expectedPopulation = new BigDecimal("187967746"),
+        BigDecimal expectedPopulation = new BigDecimal("487312954");
 
         Assert.assertEquals(world.getPeopleQuantity(), expectedPopulation);
-
-
 
     }
 }
