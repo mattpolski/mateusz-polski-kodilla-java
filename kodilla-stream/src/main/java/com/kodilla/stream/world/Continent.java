@@ -40,5 +40,8 @@ public class Continent {
         return africa;
     }
 
+    Continent continent1 = new Continent("Europe", getEurope());
+    Continent continent2 = new Continent("South America", getSouthAmerica());
+    Continent continent3 = new Continent("Africa", getAfrica());
 
 }

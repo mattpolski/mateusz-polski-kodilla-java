@@ -1,5 +1,6 @@
 package com.kodilla.stream.world;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +12,8 @@ public class World {
     }
     List<Continent> continentList = new ArrayList<>();
 
-    public World() {
-    continentList.add(new Continent("Europe", Continent.getEurope()));
-    continentList.add(new Continent("South America", Continent.getSouthAmerica()));
-    continentList.add(new Continent("Africa", Continent.getAfrica()))
+    BigDecimal getPeopleQuantity() {
+        return continentList.stream()
+                .flatMap(continent -> )
     }
 }
