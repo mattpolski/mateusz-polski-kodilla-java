@@ -10,10 +10,13 @@ public class World {
     public World(List<Continent> continents) {
         this.continents = continents;
     }
-    List<Continent> continentList = new ArrayList<>();
 
-    BigDecimal getPeopleQuantity() {
-        return continentList.stream()
-                .flatMap(continent -> )
+    public BigDecimal getPeopleQuantity() {
+        BigDecimal population = continents.stream()
+                .flatMap(continents -> continents.getListOfCountries().stream()
+                        .flatMap(country -> country.getPeopleQuantity())
+                        .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current)));
+        return population;
     }
+
 }
