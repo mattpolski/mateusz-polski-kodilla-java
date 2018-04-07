@@ -20,7 +20,7 @@ public class FlightSearcher {
 
     public void getFlight(String key) throws RouteNotFoundException {
         if (mapOfFlights.containsKey(key)) {
-            System.out.println("fdfds");
+            System.out.println("Chcialem zeby zwracalo value ale nie wiem jak to zrobic :)");
         } else {
             throw new RouteNotFoundException();
         }
