@@ -18,9 +18,9 @@ public class FlightSearcher {
         return mapOfFlights.get(flight.getArrivalAirport());
     }
 
-    public void getFlight(String key) throws RouteNotFoundException {
+    public Boolean getFlight(String key) throws RouteNotFoundException {
         if (mapOfFlights.containsKey(key)) {
-            System.out.println("Chcialem zeby zwracalo value ale nie wiem jak to zrobic :)");
+            return mapOfFlights.get(key);
         } else {
             throw new RouteNotFoundException();
         }
