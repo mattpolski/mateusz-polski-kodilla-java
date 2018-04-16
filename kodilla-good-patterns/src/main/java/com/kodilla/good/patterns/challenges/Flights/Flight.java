@@ -7,6 +7,7 @@ public interface Flight {
     int getFlightId();
     Airport getArrivalAirport();
     Airport getDepartureAirport();
+    Airport getThroughAirport();
     LocalDateTime getArrivalTime();
     LocalDateTime getDepartureTime();
 

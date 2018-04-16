@@ -32,7 +32,14 @@ public class FlighSearchServiceClass implements FlightSearchService {
 
     @Override
     public List<Flight> searchFlightsThrough(FlightSearching flightSearching) {
-        final Airport airport = flightSearching.getAirport();
-        return null;
+        final Airport departureAirport = flightSearching.getAirport();
+        final Airport throughAirport = flightSearching.getAirport();
+        final Airport arrivalAirport = flightSearching.getAirport();
+        return listOfFlights.getFlights().stream()
+                .filter(flight -> flight.getDepartureAirport().equals(departureAirport))
+                .filter(flight -> flight.getThroughAirport().equals(throughAirport))
+                .filter(flight -> flight.getArrivalAirport().equals(arrivalAirport))
+                .filter(flight -> flight.getDepartureTime().isAfter(LocalDateTime.now()))
+                .collect(Collectors.toList());
     }
 }
