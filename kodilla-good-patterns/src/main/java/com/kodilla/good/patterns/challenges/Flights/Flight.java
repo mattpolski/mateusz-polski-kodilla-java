@@ -1,14 +1,26 @@
 package com.kodilla.good.patterns.challenges.Flights;
 
-import java.time.LocalDateTime;
+public class Flight {
 
-public interface Flight {
+    private final String departureAirport;
+    private final String arrivalAirport;
 
-    int getFlightId();
-    Airport getArrivalAirport();
-    Airport getDepartureAirport();
-    Airport getThroughAirport();
-    LocalDateTime getArrivalTime();
-    LocalDateTime getDepartureTime();
+    public Flight(String departureAirport, String arrivalAirport) {
+        this.departureAirport = departureAirport;
+        this.arrivalAirport = arrivalAirport;
+    }
 
+    public String getDepartureAirport() {
+        return departureAirport;
+    }
+
+    public String getArrivalAirport() {
+        return arrivalAirport;
+    }
+
+    @Override
+    public String toString() {
+        return "Departure airport: '" + departureAirport + '\'' +
+                ", Arrival airport: '" + arrivalAirport + '\'';
+    }
 }

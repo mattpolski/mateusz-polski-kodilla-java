@@ -4,9 +4,8 @@ import java.util.List;
 
 interface FlightSearchService {
 
-
-    List<Flight> searchFlightsTo (final FlightSearching flightSearching);
-    List<Flight> searchFlightsFrom (final FlightSearching flightSearching);
-    List<Flight> searchFlightsThrough (final FlightSearching flightSearching);
+    List<Flight> searchFlightsTo (String to);
+    List<Flight> searchFlightsFrom (String from);
+    List<Flight> searchFlightsBy (String from, String by, String to);
 
 }
