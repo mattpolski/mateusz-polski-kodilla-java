@@ -32,9 +32,16 @@ public class FlightSearchServiceClass implements FlightSearchService {
 
     @Override
     public List<Flight> searchFlightsBy(String from, String by, String to) {
-        return flights.stream()
+        List<Flight> fromList = flights.stream()
                 .filter(f -> f.getDepartureAirport().equals(from))
-                .filter(flight -> flight.getArrivalAirport().equals(by))
+                .filter(f -> f.getArrivalAirport().equals(by))
                 .collect(Collectors.toList());
+
+        List<Flight> toList = flights.stream()
+                .filter(f -> f.getDepartureAirport().equals(by))
+                .filter(f -> f.getArrivalAirport().equals(to))
+                .collect(Collectors.toList());
+        fromList.addAll(toList);
+        return fromList;
     }
 }
