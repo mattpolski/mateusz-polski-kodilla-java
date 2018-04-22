@@ -3,12 +3,10 @@ package com.kodilla.spring.portfolio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 @Configuration
 public class BoardConfig {
-
-    @Autowired
-    Board board;
 
     @Bean(name = "tasksToDo")
     public TaskList toDoList() {
@@ -23,5 +21,10 @@ public class BoardConfig {
     @Bean(name = "tasksDone")
     public TaskList doneList() {
         return new TaskList();
+    }
+
+    @Bean
+    public Board board() {
+        return new Board(toDoList(), inProgressList(), doneList());
     }
 }

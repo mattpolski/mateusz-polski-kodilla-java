@@ -3,12 +3,16 @@ package com.kodilla.spring.portfolio;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootTest
 public class BoardTestSuite {
+
+    @Autowired
+    Board board;
 
     @Test
     public void testTaskAdd() {
@@ -18,13 +22,13 @@ public class BoardTestSuite {
         board.getInProgressList().addTask("Task number 2");
         board.getDoneList().addTask("Task number 3");
 
-        String task1 = board.getToDoList().getTask(0);
-        String task2 = board.getInProgressList().getTask(0);
-        String task3 = board.getDoneList().getTask(0);
+        String toDo = board.getToDoList().getTask(0);
+        String inProgress = board.getInProgressList().getTask(0);
+        String done = board.getDoneList().getTask(0);
 
-        Assert.assertEquals(task1, "Task number 1");
-        Assert.assertEquals(task2, "Task number 2");
-        Assert.assertEquals(task3, "Task number 3");
+        Assert.assertEquals(toDo, "Task number 1");
+        Assert.assertEquals(inProgress, "Task number 2");
+        Assert.assertEquals(done, "Task number 3");
 
     }
 }
