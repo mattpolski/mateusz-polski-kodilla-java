@@ -6,12 +6,12 @@ public class Messages {
         System.out.println("Welcome to Rock-Paper-Scissors Game! Please tell me you name...");
     }
 
-    public void numberOfRounds() {
-        System.out.println("How many rounds do you want to play? Enter a number between 1 and 5.");
+    public void numberOfRounds(String playerName) {
+        System.out.println(playerName + ", how many rounds do you want to play?");
     }
 
     public void incorrectNumberOfRounds() {
-        System.out.println("Error! Enter a number between 1 and 5.");
+        System.out.println("Error! Enter how many rounds do you want to play");
     }
 
     public void howToPlay() {
@@ -19,7 +19,11 @@ public class Messages {
     }
 
     public void incorrectInput() {
-        System.out.println("Error!\n   '1' - play \"rock\"\n   '2' - play \"paper\"\n   '3' - play \"scissors\"\n   'x' - quit game\n   'n' - new game");
+        System.out.println("Error! Try one more time:\n   '1' - play \"rock\"\n   '2' - play \"paper\"\n   '3' - play \"scissors\"\n   'x' - quit game\n   'n' - new game");
+    }
+
+    public void makeMove() {
+        System.out.println("Select your move...");
     }
 
     public void quitConfirmation() {
@@ -27,8 +31,27 @@ public class Messages {
     }
 
     public void newGameConfirmation() {
-        System.out.println("Are you sure you want to start a new game? Y/N");
+        System.out.println("Are you sure you want to start a new game? Type 'y' to start new game");
     }
 
+    public void showResultOfRound(String playerName, Moves playerMove, Moves computerMove) {
+        System.out.println(playerName + playerMove + ":" + computerMove + " Computer");
+    }
 
+    public void playerWinsRound() {
+        System.out.println("You won this round!");
+    }
+
+    public void computerWinsRound() {
+        System.out.println("Bad luck! Computer won this round...");
+    }
+
+    public void drawRound() {
+        System.out.println("It's a draw!");
+    }
+
+    public void finalResultMessage(String playerName, int playerResult, int computerResult) {
+        System.out.println("Game Over! Final result: " + playerName + " " + playerResult + " VS " + computerResult + " " + "Computer" + "\n" +
+                "Press 'x' to exit \n" + "Press 'n' to start a new game");
+    }
 }

@@ -1,7 +1,7 @@
 package com.kodilla.rps;
 
 public enum Moves {
-    PAPER("paper"), STONE("stone"), SCISSORS("scissors");
+    PAPER("paper"), ROCK("rock"), SCISSORS("scissors");
 
     private final String move;
 
