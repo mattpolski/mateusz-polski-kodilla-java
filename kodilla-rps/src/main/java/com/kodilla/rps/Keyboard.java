@@ -13,8 +13,9 @@ public class Keyboard {
     private static final String PLAY_PAPER = "2";
     private static final String PLAY_SCISSORS = "3";
 
-    public String makeMove(String move, Scanner scanner, Messages messages) {
+    public String makeMove(Scanner scanner, Messages messages) {
         messages.makeMove();
+        String move = scanner.next();
         while (true) {
             switch (move) {
                 case PLAY_ROCK:
@@ -28,7 +29,7 @@ public class Keyboard {
 
                 case EXIT:
                     messages.quitConfirmation();
-                    move = scanner.nextLine();
+                    move = scanner.next();
                     if (move.equals(YES)) {
                         return EXIT;
                     }
@@ -36,7 +37,7 @@ public class Keyboard {
 
                 case NEW_GAME:
                     messages.newGameConfirmation();
-                    move = scanner.nextLine();
+                    move = scanner.next();
                     if (move.equals(YES)) {
                         return NEW_GAME;
                     }
@@ -52,21 +53,25 @@ public class Keyboard {
             switch (playerChoice) {
                 case EXIT:
                     messages.quitConfirmation();
-                    playerChoice = scanner.nextLine();
+                    playerChoice = scanner.next();
                     if (playerChoice.equals("y")) {
+                        System.out.println("See you soon!");
                         return EXIT;
+                    } else if (playerChoice.equals("n")) {
+                        System.out.println("Ok, so let's try one more time!");
+                        return NEW_GAME;
                     }
                     break;
                 case NEW_GAME:
                     messages.newGameConfirmation();
-                    playerChoice = scanner.nextLine();
+                    playerChoice = scanner.next();
                     if (playerChoice.equals("y")) {
                         return NEW_GAME;
+                    } else if (playerChoice.equals("n")) {
+                        System.out.println("See you soon!");
+                        return EXIT;
                     }
                     break;
-                    default:
-                        messages.incorrectInput();
-                        playerChoice = scanner.nextLine();
             }
         }
     }

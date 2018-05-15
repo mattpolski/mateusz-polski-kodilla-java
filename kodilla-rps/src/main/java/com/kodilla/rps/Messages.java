@@ -35,7 +35,7 @@ public class Messages {
     }
 
     public void showResultOfRound(String playerName, Moves playerMove, Moves computerMove) {
-        System.out.println(playerName + playerMove + ":" + computerMove + " Computer");
+        System.out.println(playerName + " " + playerMove + " : " + computerMove + " Computer");
     }
 
     public void playerWinsRound() {
@@ -51,7 +51,7 @@ public class Messages {
     }
 
     public void finalResultMessage(String playerName, int playerResult, int computerResult) {
-        System.out.println("Game Over! Final result: " + playerName + " " + playerResult + " VS " + computerResult + " " + "Computer" + "\n" +
+        System.out.println("\n\n          GAME OVER! \nFinal result: " + playerName + " " + playerResult + " VS " + computerResult + " " + "Computer" + "\n\n\n" +
                 "Press 'x' to exit \n" + "Press 'n' to start a new game");
     }
 }

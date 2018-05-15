@@ -31,7 +31,7 @@ public class GameEngine {
 
         while (roundCount < numberOfRounds) {
             roundCount++;
-            playerChoice = keyboard.makeMove(scanner.nextLine(), scanner, messages);
+            playerChoice = keyboard.makeMove(scanner, messages);
 
             switch (playerChoice) {
                 case EXIT:
@@ -63,7 +63,7 @@ public class GameEngine {
 
         }
         messages.finalResultMessage(playerName, playerResult, computerResult);
-        playerChoice = keyboard.exitGame(scanner.nextLine(), scanner, messages);
+        playerChoice = keyboard.exitGame(scanner.next(), scanner, messages);
         if (playerChoice.equals("y")) {
             exit = true;
         }
