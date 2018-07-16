@@ -5,6 +5,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Company.searchCompanyByName",
+        query = "FROM Company WHERE company_name LIKE CONCAT (:PARTOFNAME,'%')"
+)
+
 @NamedNativeQuery(
         name = "Company.retrieveCompanyByFirstLetters",
         query = "SELECT * FROM COMPANIES" +
