@@ -23,31 +23,32 @@ public class ApiFacadeTest {
     @Autowired
     CompanyDao companyDao;
 
-    Company softwareMachine = new Company("Software Machine");
-    Employee johnSmith = new Employee("John", "Smith");
+
+
 
     @Test
     public void searchCompanyByName() throws Exception{
-        companyDao.deleteAll();
+        Employee johnSmith = new Employee("John", "Smith");
+        Company softwareMachine = new Company("Software Machine");
         softwareMachine.getEmployees().add(johnSmith);
         johnSmith.getCompanies().add(softwareMachine);
         companyDao.save(softwareMachine);
-        int companyId = softwareMachine.getId();
 
-        Assert.assertEquals("Software Machine", apiFacade.searchCompanyByName("war"));
+        Assert.assertEquals("Software Machine", apiFacade.searchCompanyByName("war").get(0).getName());
 
-        companyDao.delete(companyId);
+        companyDao.deleteAll();
     }
 
     @Test
     public void searchEmployeeByName() throws Exception{
+        Employee johnSmith = new Employee("John", "Smith");
+        Company softwareMachine = new Company("Software Machine");
         softwareMachine.getEmployees().add(johnSmith);
         johnSmith.getCompanies().add(softwareMachine);
         employeeDao.save(johnSmith);
-        int employeeId = johnSmith.getId();
 
-        Assert.assertEquals("John Smith", apiFacade.searchEmployeeByName("mit"));
+        Assert.assertEquals("Smith", apiFacade.searchEmployeeByName("mit").get(0).getLastname());
 
-        employeeDao.delete(employeeId);
+        employeeDao.deleteAll();
     }
 }
