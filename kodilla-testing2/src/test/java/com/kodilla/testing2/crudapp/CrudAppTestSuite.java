@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+import static junit.framework.TestCase.assertTrue;
+
 public class CrudAppTestSuite {
     private static final String BASE_URL = "https://mattpolski.github.io/";
     private WebDriver driver;
@@ -29,7 +31,7 @@ public class CrudAppTestSuite {
         driver.close();
     }
 
-    public String createCrudAppTestTask() throws InterruptedException {
+    private String createCrudAppTestTask() throws InterruptedException {
         final String XPATH_TASK_NAME = "//form[contains(@action, \"createTask\")]/fieldset[1]/input";
         final String XPATH_TASK_CONTENT = "//form[contains(@action, \"createTask\")]/fieldset[2]/textarea";
         final String XPATH_ADD_BUTTON = "//form[contains(@action, \"createTask\")]/fieldset[3]/button";
@@ -68,6 +70,7 @@ public class CrudAppTestSuite {
                     buttonCreateCard.click();
         });
         Thread.sleep(5000);
+        driver.close();
 
     }
 
@@ -102,12 +105,12 @@ public class CrudAppTestSuite {
     private void deleteCrudTestTask(String taskName) throws InterruptedException {
         initTests();
 
-        while (!driver.findElement(By.xpath(("//select[1]"))).isDisplayed());
+        while (!driver.findElement(By.xpath("//select[1]")).isDisplayed());
 
         driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
                 .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]")).getText().equals(taskName))
                 .forEach(theForm -> {
-                    WebElement deleteButton = theForm.findElement(By.xpath(".//fieldset[contains(@class, \"row-section--button-section\")]/button[4]"));
+                    WebElement deleteButton = theForm.findElement(By.xpath(".//fieldset[contains(@class, \"section--button-section\")]/button[4]"));
                     deleteButton.click();
                 });
 
@@ -118,7 +121,7 @@ public class CrudAppTestSuite {
     public void shouldCreateTrelloCard() throws InterruptedException {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
-        checkTaskExistsInTrello(taskName);
+
         deleteCrudTestTask(taskName);
     }
 }
